@@ -1,5 +1,5 @@
 
-GPU=0
+GPU=1
 for idx in 1; do
 CUDA_VISIBLE_DEVICES=${GPU} python -u benchmarks/benchmark_mdqa.py \
     --model-name state-spaces/mamba-2.8b \

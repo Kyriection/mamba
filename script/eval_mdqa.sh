@@ -1,6 +1,6 @@
 
 GPU=1
-for idx in 1; do
+for idx in 1 3 5 7 10; do
 CUDA_VISIBLE_DEVICES=${GPU} python -u benchmarks/benchmark_mdqa.py \
     --model-name state-spaces/mamba-2.8b \
     --answer_idx ${idx} \

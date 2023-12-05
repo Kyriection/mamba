@@ -1,4 +1,4 @@
-GPU=0
+GPU=2
 for data in xsum cnn_dailymail; do
 for shots in 0 3 5; do
 CUDA_VISIBLE_DEVICES=${GPU} python -u benchmarks/benchmark_summarization.py \

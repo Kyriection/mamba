@@ -56,6 +56,9 @@ parser.add_argument("--genlen", type=int, default=100)
 parser.add_argument("--topk", type=int, default=1)
 parser.add_argument("--batch", type=int, default=1)
 
+parser.add_argument('--only_true', action='store_true')
+
+
 parser.add_argument("--output_path", type=str, default=None)
 parser.add_argument("--answer_idx", type=int, default=0)
 parser.add_argument("--sample_num", type=int, default=100)

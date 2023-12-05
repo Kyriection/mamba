@@ -19,7 +19,7 @@ import numpy as np
 from rouge import Rouge
 from xopen import xopen
 from copy import deepcopy
-
+import os
 
 from lost_in_the_middle.prompting import (
     Document,

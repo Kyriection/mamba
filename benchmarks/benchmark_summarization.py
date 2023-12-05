@@ -76,7 +76,9 @@ with torch.no_grad():
         temperature = request['temperature']
         stop = request['stop']
 
-        input_ids = tokenizer(prompt, add_special_tokens=False, return_tensors='pt').input_ids.to(device)
+        tokens_encode = tokenizer(prompt, add_special_tokens=False, return_tensors='pt')
+        input_ids = tokens_encode.input_ids.to(device)
+        attn_mask = tokens_encode.attention_mask.to(device)
 
         if is_mamba:
             output_sequences = model.generate(
@@ -92,6 +94,7 @@ with torch.no_grad():
             )
         else:
             output_sequences = model.generate(
+                attention_mask=attn_mask,
                 input_ids=input_ids,
                 max_length=request['max_tokens'] + len(input_ids[0]),
                 temperature=temperature,

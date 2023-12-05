@@ -13,7 +13,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 from mamba_ssm.models.mixer_seq_simple import MambaLMHeadModel
 
-import tqdm
+from tqdm import tqdm
 import math
 import numpy as np
 from rouge import Rouge
@@ -127,7 +127,6 @@ if len(prompts) > args.sample_num:
     all_model_documents = all_model_documents[:args.sample_num]
 
 
-import pdb; pdb.set_trace()
 responses = []
 with torch.no_grad():
     for batched_prompts in tqdm(chunks(prompts, args.batch_size), total=math.ceil(len(prompts) / args.batch_size)):

@@ -112,7 +112,7 @@ with xopen(input_path, 'r') as f:
                     query_aware_contextualization=False,
                     answer_idx=args.answer_idx
                 )
-            if "instruct" in model_name:
+            if "instruct" in args.model_name:
                 prompt = format_instruct_prompt(prompt)
             prompts.append(prompt)
             examples.append(deepcopy(input_example))
@@ -184,7 +184,7 @@ with torch.no_grad():
             output_example["model_prompt"] = prompt
             output_example["model_documents"] = [dataclasses.asdict(document) for document in model_documents]
             output_example["model_answer"] = response
-            output_example["model"] = model_name
+            output_example["model"] = args.model_name
             output_example["model_temperature"] = 0
             output_example["model_top_p"] = "None"
             output_example["model_prompt_mention_random_ordering"] = False

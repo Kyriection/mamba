@@ -126,6 +126,8 @@ if len(prompts) > args.sample_num:
     examples = examples[:args.sample_num]
     all_model_documents = all_model_documents[:args.sample_num]
 
+
+import pdb; pdb.set_trace()
 responses = []
 with torch.no_grad():
     for batched_prompts in tqdm(chunks(prompts, args.batch_size), total=math.ceil(len(prompts) / args.batch_size)):

@@ -14,6 +14,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from mamba_ssm.models.mixer_seq_simple import MambaLMHeadModel
 
 import tqdm
+import numpy as np
 from rouge import Rouge
 from xopen import xopen
 

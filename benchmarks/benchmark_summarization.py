@@ -100,6 +100,7 @@ with torch.no_grad():
                 temperature=temperature,
                 top_p=request['top_p'],
                 return_dict_in_generate=True, output_scores=True,
+                pad_token_id=tokenizer.eos_token_id
             )
 
         tokens = tokenizer.convert_ids_to_tokens(output_sequences['sequences'].squeeze(0))[len(input_ids[0]):]

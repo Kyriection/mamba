@@ -75,7 +75,7 @@ with torch.no_grad():
         temperature = request['temperature']
         stop = request['stop']
 
-        input_ids = tokenizer(prompt, add_special_tokens=False, return_tensors='pt').input_ids.to(model.device)
+        input_ids = tokenizer(prompt, add_special_tokens=False, return_tensors='pt').input_ids.to(device)
 
         output_sequences = model.generate(
                 input_ids=input_ids,

@@ -20,7 +20,7 @@ from rouge import Rouge
 from xopen import xopen
 from copy import deepcopy
 import os
-
+import dataclasses
 from lost_in_the_middle.prompting import (
     Document,
     get_closedbook_qa_prompt,

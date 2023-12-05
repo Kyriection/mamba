@@ -149,14 +149,12 @@ with torch.no_grad():
                 cg=True,
                 enable_timing=False,
                 top_k=args.topk,
-                top_p=request['top_p'],
             )
         else:
             outputs = model.generate(
                 attention_mask=attn_mask,
                 input_ids=input_ids,
-                max_length=request['max_tokens'] + len(input_ids[0]),
-                top_p=request['top_p'],
+                max_length=100 + len(input_ids[0]),
                 pad_token_id=tokenizer.eos_token_id
             )
 

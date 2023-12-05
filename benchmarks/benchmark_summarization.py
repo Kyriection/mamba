@@ -93,10 +93,19 @@ with torch.no_grad():
                 top_p=request['top_p'],
             )
         else:
+            # output_sequences = model.generate(
+            #     attention_mask=attn_mask,
+            #     input_ids=input_ids,
+            #     max_length=request['max_tokens'] + len(input_ids[0]),
+            #     temperature=temperature,
+            #     top_p=request['top_p'],
+            #     return_dict_in_generate=True, output_scores=True,
+            #     pad_token_id=tokenizer.eos_token_id
+            # )
+
             output_sequences = model.generate(
-                attention_mask=attn_mask,
                 input_ids=input_ids,
-                max_length=request['max_tokens'] + len(input_ids[0]),
+                max_new_tokens=request['max_tokens'],
                 temperature=temperature,
                 top_p=request['top_p'],
                 return_dict_in_generate=True, output_scores=True,

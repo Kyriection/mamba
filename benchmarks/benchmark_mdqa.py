@@ -133,12 +133,12 @@ with torch.no_grad():
     #     inputs = tokenizer(batched_prompts, return_tensors="pt", padding=True).to(model.device)
     # for prompt in tqdm(prompts):
         if args.batch_size > 1:
-            tokens_encode = tokenizer(batched_prompts, add_special_tokens=False, return_tensors='pt', truncation=True, max_length=config.max_position_embeddings, padding=True)
+            tokens_encode = tokenizer(batched_prompts, add_special_tokens=False, return_tensors='pt', truncation=True, padding=True)
             input_ids = tokens_encode.input_ids.to(device)
             attn_mask = tokens_encode.attention_mask.to(device)
 
         else:
-            tokens_encode = tokenizer(batched_prompts, add_special_tokens=False, return_tensors='pt', truncation=True, max_length=config.max_position_embeddings)
+            tokens_encode = tokenizer(batched_prompts, add_special_tokens=False, return_tensors='pt', truncation=True)
             input_ids = tokens_encode.input_ids.to(device)
             attn_mask = tokens_encode.attention_mask.to(device)
 

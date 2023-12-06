@@ -68,7 +68,6 @@ rouge1_score_list = []
 rouge2_score_list = []
 rougel_score_list = []
 
-import pdb; pdb.set_trace()
 
 with torch.no_grad():
     for request in tqdm.tqdm(requests):
@@ -114,6 +113,7 @@ with torch.no_grad():
                 return_dict_in_generate=True, output_scores=True,
                 pad_token_id=tokenizer.eos_token_id
             )
+            import pdb; pdb.set_trace()
 
         tokens = tokenizer.convert_ids_to_tokens(output_sequences['sequences'].squeeze(0))[len(input_ids[0]):]
         logprobs = [logits.log_softmax(dim=-1).max().item() for logits in output_sequences['scores']]

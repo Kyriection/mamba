@@ -106,6 +106,7 @@ with torch.no_grad():
             # )
 
             output_sequences = model.generate(
+                attention_mask=attn_mask,
                 input_ids=input_ids,
                 max_new_tokens=request['max_tokens'],
                 temperature=temperature,
